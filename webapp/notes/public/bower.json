@@ -1,0 +1,21 @@
+{
+  "name": "tasklist",
+  "description": "task list app",
+  "main": "index.js",
+  "authors": [
+    "Stefan Eugster"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/steeu/hsr",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "^4.0.5",
+    "jQuery": "^3.0.0"
+  }
+}

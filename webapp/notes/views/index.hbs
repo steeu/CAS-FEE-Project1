@@ -1,5 +1,91 @@
-<html>
-<p>Willkommen! Zu der besten Pizzaria auf der Welt!</p>
-<img src='/images/pizza.jpg'>
-<form action='/orders' method='get'><input type='submit' value='Order a Pizza'></form>
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tasklist</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!--<script type="text/javascript" src="bower_components/handlebars/handlebars.min.js"></script>-->
+    <!--<script type="text/javascript" src="bower_components/jQuery/dist/jquery.min.js"></script>-->
+    <!--<script type="text/javascript" src="handlebars.helper.js"></script>-->
+    <!--<script type="text/javascript" src="task.js"></script>-->
+    <!--<script type="text/javascript" src="tasklist.js"></script>-->
+    <!--<script type="text/javascript" src="/javascripts/storageConfig.js"></script>-->
+    <!--<script type="text/javascript" src="/javascripts/storageData.js"></script>-->
+    <script id="tasklist-template" type="text/x-handlebars-template">
+        \{{#each this}}
+        <article data-task-id="\{{data.ID}}">
+            <div class="row flex-container">
+                <div class="col-1">
+                    <h1>Nächsten Mittwoch</h1>
+                    <div class="input-wrapper checkbox">
+                        <input class="checkboxFinishedTask" data-task-id="\{{ID}}" type="checkbox" name="done" \{{#if data.done}}checked}\{{/if}}>
+                        <label><span></span>Finished [Today]</label>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h1>\{{data.title}}</h1>\{{{renderPriorityHTML data.priority}}}
+                    <div class="preview">\{{data.content}}</div> Erstellt am: \{{formatDate data.createDate}}
+                    <br>Zu erledigen bis: \{{formatDate data.finishDate}} </div>
+                <div class="col-3">
+                    <button class="btnEditTask btn-black" data-task-id="\{{ID}}">Edit</button>
+                </div>
+            </div>
+        </article>
+        \{{/each}}
+    </script>
+</head>
+
+<body>
+<div class="app-wrapper">
+    <header>
+        <div class="row flex-container">
+            <div class="col-1">
+                <button id="btnAddTask" class="btn-blue">Create new note</button>
+            </div>
+            <div class="col-2">
+                <select id="btnSelectSkin">
+                    <option value="color">Color Style</option>
+                    <option value="bw">Black &amp; White Style</option>
+                </select>
+            </div>
+        </div>
+        <div class="row flex-container">
+            <div class="col-1">
+                <div class="flex-container">
+                    <button id="btnOrderByFinishDate" class="button-bar left">By finish date</button>
+                    <button id="btnOrderByCreateDate" class="button-bar center">By create date</button>
+                    <button id="btnOrderByPriority" class="button-bar right">By importance</button>
+                </div>
+            </div>
+            <div class="col-2">
+                <button id="btnShowFinished" >Show finished</button>
+            </div>
+        </div>
+    </header>
+    <main id="taskListWrapper">
+        {{#each this}}
+        <article data-task-id="{{_id}}">
+            <div class="row flex-container">
+                <div class="col-1">
+                    <h1>Nächsten Mittwoch</h1>
+                    <div class="input-wrapper checkbox">
+                        <input class="checkboxFinishedTask" data-task-id="{{_id}}" type="checkbox" name="done" {{#if finished}}checked}{{/if}}>
+                        <label><span></span>Finished [Today]</label>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h1>{{title}}</h1>{{{priority}}}
+                    <div class="preview">{{content}}</div> Erstellt am: {{createDate}}
+                    <br>Zu erledigen bis: {{finishDate}} </div>
+                <div class="col-3">
+                    <button class="btnEditTask btn-black" data-task-id="{{_id}}">Edit</button>
+                </div>
+            </div>
+        </article>
+        {{/each}}
+    </main>
+</div>
+<script type="text/javascript" src="/javascripts/index.js"></script>
+</body>
+
 </html>
