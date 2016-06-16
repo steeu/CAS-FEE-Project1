@@ -2,6 +2,7 @@
 
 var templateSource = $('#tasklist-template').html();
 var template = Handlebars.compile(templateSource);
+var listData = [];
 
 // render list
 function renderList(data) {
@@ -10,13 +11,13 @@ function renderList(data) {
 
 // load task list
 dataService.all(function (data) {
-    renderList(data);
+    listData = data;
+    renderList(listData);
 });
 
 // add note
 $("body").on("click", "#btnAddNote", function(event) {
     event.preventDefault();
-
     // goto add note
     window.location = '/add';
 });
@@ -24,7 +25,6 @@ $("body").on("click", "#btnAddNote", function(event) {
 // edit note
 $("body").on("click", ".btnEditNote", function(event) {
     event.preventDefault();
-
     // goto update note
     window.location = '/update/' + $(this).data("task-id");
 });
@@ -32,78 +32,63 @@ $("body").on("click", ".btnEditNote", function(event) {
 // order notes by priority
 $("body").on("click", "#btnOrderByPriority", function(event) {
     event.preventDefault();
-
+    // sort list
+    renderList(listData.sort(function (note1, note2) {
+        return note1.priority < note2.priority;
+    }));
 });
 
 // order notes by finish date
 $("body").on("click", "#btnOrderByFinishDate", function(event) {
     event.preventDefault();
-
+    // sort list
+    renderList(listData.sort(function (note1, note2) {
+        var date1 = new Date(note1.finishDate);
+        var date2 = new Date(note2.finishDate);
+        return date1 > date2;
+    }));
 });
 
 // order notes by create date
 $("body").on("click", "#btnOrderByCreateDate", function(event) {
     event.preventDefault();
-
+    // sort list
+    renderList(listData.sort(function (note1, note2) {
+        var date1 = new Date(note1.createDate);
+        var date2 = new Date(note2.createDate);
+        return date1 > date2;
+    }));
 });
 
 // show finished notes
 $("body").on("click", "#btnShowFinished", function(event) {
     event.preventDefault();
-
+    // toggle
+    if ($("#btnShowFinished").data("show-finished")) {
+        $("#btnShowFinished").data("show-finished", false);
+        $("#btnShowFinished").text('Show finished');
+        // load finished notes
+        // ???
+    } else {
+        $("#btnShowFinished").data("show-finished", true);
+        $("#btnShowFinished").text('Show open');
+        // load open notes
+        // ???
+    }
 });
 
 // finish note checkbox
 $("body").on("change", ".checkboxFinishNote", function(event) {
     event.preventDefault();
-
+    // mark note as finished
+    // ???
 });
 
-// finish note checkbox
+// select skin dropdown
 $("body").on("change", "#btnSelectSkin", function(event) {
     event.preventDefault();
-
-});
-
-
-
-// finished task
-function finishedTask(event) {
-    event.preventDefault();
-    // validate button with class name
-    if (event.srcElement.className.indexOf("checkboxFinishedTask") !== -1) {
-        var taskID = event.srcElement.getAttribute("data-task-id");
-
-        // set as finished
-    }
-};
-
-// show finished tasks
-function showFinished(event) {
-    event.preventDefault();
-    // validate toggle
-    if (myTaskList.filterStr === 'closed') {
-        myTaskList.filter('open');
-        $("#btnShowFinished").text('Show finished');
-    } else {
-        myTaskList.filter('closed');
-        $("#btnShowFinished").text('Show open');
-    }
-    myTaskList.renderHTML();
-};
-
-//select app skin event
-function selectSkin(event) {
-    var skin = event.srcElement.selectedOptions[0] ? event.srcElement.selectedOptions[0].value : 'color';
-    storageConfig.setSkin(skin);
-    updateSkin();
-};
-
-//select app skin
-function updateSkin() {
-    var skin = storageConfig.getSkin();
-    // update select element
-    $("#btnSelectSkin").val(skin);
     // set body class
-    document.body.className = skin;
-};
+    document.body.className = $(this).val();
+    // save selected skin
+    // ???
+});
