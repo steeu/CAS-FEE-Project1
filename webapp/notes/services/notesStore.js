@@ -1,5 +1,6 @@
 var Datastore = require('nedb');
 var db = new Datastore({filename: './data/notes.db', autoload: true});
+var moment = require('moment');
 
 function Note(params) {
     var params = params || {};
@@ -7,8 +8,8 @@ function Note(params) {
     this.title = params.title || 'Titel neue Notiz ...';
     this.content = params.content || 'Inhalt neue Notiz ...';
     this.priority = params.priority || 1;
-    this.finishDate = JSON.stringify(new Date());
-    this.createDate = JSON.stringify(new Date());
+    this.finishDate = moment().format("YYYY-MM-DD");
+    this.createDate = moment().format("YYYY-MM-DD");
     this.finished = false;
 };
 

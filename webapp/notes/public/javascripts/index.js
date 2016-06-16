@@ -32,6 +32,8 @@ $("body").on("click", ".btnEditNote", function(event) {
 // order notes by priority
 $("body").on("click", "#btnOrderByPriority", function(event) {
     event.preventDefault();
+    $(this).siblings().removeClass("active");
+    $(this).addClass("active");
     // sort list
     renderList(listData.sort(function (note1, note2) {
         return note1.priority < note2.priority;
@@ -41,6 +43,8 @@ $("body").on("click", "#btnOrderByPriority", function(event) {
 // order notes by finish date
 $("body").on("click", "#btnOrderByFinishDate", function(event) {
     event.preventDefault();
+    $(this).siblings().removeClass("active");
+    $(this).addClass("active");
     // sort list
     renderList(listData.sort(function (note1, note2) {
         var date1 = new Date(note1.finishDate);
@@ -52,6 +56,8 @@ $("body").on("click", "#btnOrderByFinishDate", function(event) {
 // order notes by create date
 $("body").on("click", "#btnOrderByCreateDate", function(event) {
     event.preventDefault();
+    $(this).siblings().removeClass("active");
+    $(this).addClass("active");
     // sort list
     renderList(listData.sort(function (note1, note2) {
         var date1 = new Date(note1.createDate);
