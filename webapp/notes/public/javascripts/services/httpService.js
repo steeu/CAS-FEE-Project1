@@ -4,8 +4,13 @@ var httpService = (function () {
         privateRequest("PUT", url, data, successCallback, errorCallback);
     };
 
+    function publicDELETE(url, successCallback, errorCallback) {
+        privateRequest("DELETE", url, null, successCallback, errorCallback);
+    };
+
     function privateRequest(methode, url, data, successCallback, errorCallback) {
         var xhr = new XMLHttpRequest();
+        var data = data ? JSON.stringify(data) : null;
 
         xhr.onreadystatechange = function () {
             if (4 === xhr.readyState) {
@@ -23,10 +28,11 @@ var httpService = (function () {
 
         xhr.open(methode, url, true);
         xhr.setRequestHeader('Content-Type', 'application/json')
-        xhr.send(JSON.stringify(data));
+        xhr.send(data);
     };
 
     return {
-        put: publicPUT
+        put: publicPUT,
+        delete: publicDELETE
     };
 })();

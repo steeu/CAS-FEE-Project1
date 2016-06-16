@@ -1,7 +1,7 @@
 'use strict'
 
-// save note
-function saveNoteHandler(event) {
+// update note
+$("body").on("click", "#btnSaveNote", function(event){
     event.preventDefault();
 
     var formData = {
@@ -9,26 +9,37 @@ function saveNoteHandler(event) {
         content: $("#in-description").val(),
         priority: $("#in-priority").val(),
         finishDate: $("#in-date").val()
-    }
+    };
 
     // rest service
-    httpService.put(event.srcElement.getAttribute("data-urlpath"), formData, function (result) {
+    httpService.put($(this).data("urlpath"), formData, function (result) {
+        console.log(result);
         window.location = "/";
+    }, function (result) {
+        console.log("Error: ", result);
     });
-};
+});
 
 // remove note
-function removeTaskHandler(event) {
+$("body").on("click", "#btnRemoveNote", function(event) {
     event.preventDefault();
-    myTask.remove();
-    window.location = 'index.html';
-};
+
+    // rest service
+    httpService.delete($(this).data("urlpath"), function (result) {
+        console.log(result);
+        window.location = "/";
+    }, function (result) {
+        console.log("Error: ", result);
+    });
+});
 
 // cancel note
-function cancelNoteHandler(event) {
+$("body").on("click", "#btnCancelNote", function(event) {
     event.preventDefault();
+
+    // goto root
     window.location = '/';
-};
+});
 
 // set priority
 function iconPriorityHandler(event) {
@@ -60,20 +71,6 @@ function updateSkin() {
     document.body.className = storageConfig.getSkin()
 };
 
-// on load
-//updateSkin();
-
-/**
- * event handler
- */
-var btnSaveTask = document.querySelector("#btnSaveTask");
-btnSaveTask.addEventListener("click", saveNoteHandler);
-// remove task
-var btnRemoveTask = document.querySelector("#btnRemoveTask");
-btnRemoveTask.addEventListener("click", removeTaskHandler);
-// candel task
-var btnCancelTask = document.querySelector("#btnCancelTask");
-btnCancelTask.addEventListener("click", cancelNoteHandler);
 // set priority
 var iconPriority = document.querySelector("#icon-priority-wrapper");
 iconPriority.addEventListener("click", iconPriorityHandler);

@@ -39,7 +39,7 @@ module.exports.restUpdateNote = function(req, res)
     store.update(req.params.id, req.body, function(err, numReplaced) {
         res.format({
             'application/json': function(){
-                res.json(numReplaced);
+                res.json({numReplaced: numReplaced});
             }
         });
     });
@@ -47,10 +47,10 @@ module.exports.restUpdateNote = function(req, res)
 
 module.exports.restDeleteNote = function(req, res)
 {
-    store.delete(req.params.id, function(err, note) {
+    store.delete(req.params.id, function(err, numRemoved) {
         res.format({
             'application/json': function(){
-                res.json(note);
+                res.json({numRemoved: numRemoved});
             }
         });
     });

@@ -26,28 +26,40 @@ function publicAddNote(callback) {
 // edit note
 function publicGetNote(id, callback) {
 
-    db.findOne({ _id: id }, function (err, doc) {
-        callback(err, doc);
+    db.findOne({_id: id}, function (err, doc) {
+        if (callback) {
+            callback(err, doc);
+        }
     });
 };
 
 // edit note
 function publicUpdateNote(id, updatedNote, callback) {
 
-    db.update({ _id: id }, updatedNote, function (err, numReplaced) {
-        callback(err, numReplaced);
+    db.update({_id: id}, updatedNote, function (err, numReplaced) {
+        if (callback) {
+            callback(err, numReplaced);
+        }
     });
 };
 
 // delete note
 function publicDeleteNote(id, callback) {
 
+    db.remove({_id: id}, {}, function (err, numRemoved) {
+        if (callback) {
+            callback(err, numRemoved);
+        }
+    });
 };
 
 // all notes
 function publicAllNotes(callback) {
+
     db.find({}, function (err, docs) {
-        callback(err, docs);
+        if (callback) {
+            callback(err, docs);
+        }
     });
 };
 

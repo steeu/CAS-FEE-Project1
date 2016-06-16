@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script type="text/javascript" src="/bower_components/jQuery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/javascripts/services/httpService.js"></script>
-    <!--<script type="text/javascript" src="task.js"></script>-->
-    <!--<script type="text/javascript" src="storageConfig.js"></script>-->
-    <!--<script type="text/javascript" src="storageData.js"></script>-->
 </head>
 
 <body>
@@ -195,9 +192,9 @@
                 <input type="date" id="in-date" placeholder="TT/MM/YYYY" value="{{finishDate}}"></div>
             <div class="input-wrapper txt-left top-20">
                 <label></label>
-                <button id="btnSaveTask" data-urlpath="/rest/note/{{_id}}" class="btn-blue">Speichern</button>
-                <button id="btnRemoveTask" data-urlpath="/rest/note/{{_id}}" class="btn-red">Löschen</button>
-                <button id="btnCancelTask" data-urlpath="/rest/note/{{_id}}" class="btn-cancel">Cancel</button>
+                <button id="btnSaveNote" data-urlpath="/rest/note/{{_id}}" class="btn-blue">Speichern</button>
+                <button id="btnRemoveNote" data-urlpath="/rest/note/{{_id}}" class="btn-red">Löschen</button>
+                <button id="btnCancelNote" data-urlpath="/rest/note/{{_id}}" class="btn-cancel">Cancel</button>
             </div>
         </form>
     </main>
