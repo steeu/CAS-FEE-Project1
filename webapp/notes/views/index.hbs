@@ -4,10 +4,9 @@
     <meta charset="utf-8" />
     <title>Tasklist</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <script type="text/javascript" src="/bower_components/jQuery/dist/jquery.min.js"></script>
     <!--<script type="text/javascript" src="bower_components/handlebars/handlebars.min.js"></script>-->
-    <!--<script type="text/javascript" src="bower_components/jQuery/dist/jquery.min.js"></script>-->
     <!--<script type="text/javascript" src="handlebars.helper.js"></script>-->
-    <!--<script type="text/javascript" src="task.js"></script>-->
     <!--<script type="text/javascript" src="tasklist.js"></script>-->
     <!--<script type="text/javascript" src="/javascripts/storageConfig.js"></script>-->
     <!--<script type="text/javascript" src="/javascripts/storageData.js"></script>-->
@@ -27,7 +26,7 @@
                     <div class="preview">\{{data.content}}</div> Erstellt am: \{{formatDate data.createDate}}
                     <br>Zu erledigen bis: \{{formatDate data.finishDate}} </div>
                 <div class="col-3">
-                    <button class="btnEditTask btn-black" data-task-id="\{{ID}}">Edit</button>
+                    <button class="btnEditNote btn-black" data-task-id="\{{ID}}">Edit</button>
                 </div>
             </div>
         </article>
@@ -40,7 +39,7 @@
     <header>
         <div class="row flex-container">
             <div class="col-1">
-                <button id="btnAddTask" class="btn-blue">Create new note</button>
+                <button id="btnAddNote" class="btn-blue">Create new note</button>
             </div>
             <div class="col-2">
                 <select id="btnSelectSkin">
@@ -78,7 +77,7 @@
                     <div class="preview">{{content}}</div> Erstellt am: {{createDate}}
                     <br>Zu erledigen bis: {{finishDate}} </div>
                 <div class="col-3">
-                    <button class="btnEditTask btn-black" data-task-id="{{_id}}">Edit</button>
+                    <button class="btnEditNote btn-black" data-task-id="{{_id}}">Edit</button>
                 </div>
             </div>
         </article>

@@ -8,15 +8,13 @@ function Note(params) {
     this.content = params.content || 'Inhalt neue Notiz ...';
     this.priority = params.priority || 1;
     this.finishDate = JSON.stringify(new Date());
-    this.finished = false;
     this.createDate = JSON.stringify(new Date());
+    this.finished = false;
 };
 
 // add note
 function publicAddNote(callback) {
-    var note = new Note();
-
-    db.insert(note, function (err, newDoc) {
+    db.insert(new Note(), function (err, newDoc) {
         if (callback) {
             callback(err, newDoc);
         }
@@ -25,7 +23,6 @@ function publicAddNote(callback) {
 
 // edit note
 function publicGetNote(id, callback) {
-
     db.findOne({_id: id}, function (err, doc) {
         if (callback) {
             callback(err, doc);
@@ -35,7 +32,6 @@ function publicGetNote(id, callback) {
 
 // edit note
 function publicUpdateNote(id, updatedNote, callback) {
-
     db.update({_id: id}, updatedNote, function (err, numReplaced) {
         if (callback) {
             callback(err, numReplaced);
@@ -45,7 +41,6 @@ function publicUpdateNote(id, updatedNote, callback) {
 
 // delete note
 function publicDeleteNote(id, callback) {
-
     db.remove({_id: id}, {}, function (err, numRemoved) {
         if (callback) {
             callback(err, numRemoved);
@@ -55,7 +50,6 @@ function publicDeleteNote(id, callback) {
 
 // all notes
 function publicAllNotes(callback) {
-
     db.find({}, function (err, docs) {
         if (callback) {
             callback(err, docs);
@@ -65,8 +59,8 @@ function publicAllNotes(callback) {
 
 module.exports = {
     get: publicGetNote,
+    all: publicAllNotes,
     add: publicAddNote,
     update: publicUpdateNote,
-    delete: publicDeleteNote,
-    all: publicAllNotes
+    delete: publicDeleteNote
 };

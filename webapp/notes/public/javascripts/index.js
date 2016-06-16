@@ -3,21 +3,21 @@
 // init task list
 //var myTaskList = new TaskList(storageData.getAllTasks());
 
-
-// create new task
-function addTask(event) {
+// add note
+$("body").on("click", "#btnAddNote", function(event) {
     event.preventDefault();
+
+    // goto add note
     window.location = '/add';
-};
+});
 
-// edit task
-function editTask(event) {
+// edit note
+$("body").on("click", ".btnEditNote", function(event) {
     event.preventDefault();
-    // validate button with class name
-    if (event.srcElement.className.indexOf("btnEditTask") !== -1) {
-        window.location = '/update/' + event.srcElement.getAttribute("data-task-id");
-    }
-};
+
+    // goto update note
+    window.location = '/update/' + $(this).data("task-id");
+});
 
 // finished task
 function finishedTask(event) {
@@ -98,12 +98,6 @@ btnOrderByPriority.addEventListener("click", orderByPriority);
 // show finished tasks only
 var btnShowFinished = document.querySelector("#btnShowFinished");
 btnShowFinished.addEventListener("click", showFinished);
-// create new note
-var btnAddTask = document.querySelector("#btnAddTask");
-btnAddTask.addEventListener("click", addTask);
-// edit note handler ??? for loop
-var btnEditTask = document.querySelector("#taskListWrapper");
-btnEditTask.addEventListener('click', editTask);
 // checkbox change handler
 var checkboxFinishedTask = document.querySelector("#taskListWrapper");
 checkboxFinishedTask.addEventListener('click', finishedTask);
