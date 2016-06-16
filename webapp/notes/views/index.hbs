@@ -22,8 +22,9 @@
                 </div>
                 <div class="col-2">
                     <h1>\{{title}}</h1>\{{{renderPriorityHTML priority}}}
-                    <div class="preview">\{{content}}</div> Erstellt am: \{{formatDate data.createDate}}
-                    <br>Zu erledigen bis: \{{formatDate finishDate}} </div>
+                    <div class="preview">\{{content}}</div>
+                    Create Date: \{{formatDate createDate}}<br>
+                    Finish Date: \{{formatDate finishDate}} </div>
                 <div class="col-3">
                     <button class="btnEditNote btn-black" data-task-id="\{{_id}}">Edit</button>
                 </div>

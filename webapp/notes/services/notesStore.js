@@ -33,7 +33,8 @@ function publicGetNote(id, callback) {
 
 // edit note
 function publicUpdateNote(id, updatedNote, callback) {
-    db.update({_id: id}, updatedNote, function (err, numReplaced) {
+    console.log(updatedNote);
+    db.update({_id: id}, {$set: updatedNote}, function (err, numReplaced) {
         if (callback) {
             callback(err, numReplaced);
         }
