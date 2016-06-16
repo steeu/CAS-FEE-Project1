@@ -1,11 +1,20 @@
 'use strict'
 
 // save note
-function saveTaskHandler(event) {
+function saveNoteHandler(event) {
     event.preventDefault();
-    myTask.getFormData();
-    myTask.save();
-    window.location = 'index.html';
+
+    var formData = {
+        title: $("#in-title").val(),
+        content: $("#in-description").val(),
+        priority: $("#in-priority").val(),
+        finishDate: $("#in-date").val()
+    }
+
+    // rest service
+    httpService.put(event.srcElement.getAttribute("data-urlpath"), formData, function (result) {
+        window.location = "/";
+    });
 };
 
 // remove note
@@ -15,8 +24,8 @@ function removeTaskHandler(event) {
     window.location = 'index.html';
 };
 
-// cancel task
-function cancelTaskHandler(event) {
+// cancel note
+function cancelNoteHandler(event) {
     event.preventDefault();
     window.location = '/';
 };
@@ -58,13 +67,13 @@ function updateSkin() {
  * event handler
  */
 var btnSaveTask = document.querySelector("#btnSaveTask");
-btnSaveTask.addEventListener("click", saveTaskHandler);
+btnSaveTask.addEventListener("click", saveNoteHandler);
 // remove task
 var btnRemoveTask = document.querySelector("#btnRemoveTask");
 btnRemoveTask.addEventListener("click", removeTaskHandler);
 // candel task
 var btnCancelTask = document.querySelector("#btnCancelTask");
-btnCancelTask.addEventListener("click", cancelTaskHandler);
+btnCancelTask.addEventListener("click", cancelNoteHandler);
 // set priority
 var iconPriority = document.querySelector("#icon-priority-wrapper");
 iconPriority.addEventListener("click", iconPriorityHandler);

@@ -1,8 +1,8 @@
 var httpService = (function () {
 
-    function publicPut(url, data, successCallback, errorCallback) {
+    function publicPUT(url, data, successCallback, errorCallback) {
         privateRequest("PUT", url, data, successCallback, errorCallback);
-    }
+    };
 
     function privateRequest(methode, url, data, successCallback, errorCallback) {
         var xhr = new XMLHttpRequest();
@@ -24,9 +24,9 @@ var httpService = (function () {
         xhr.open(methode, url, true);
         xhr.setRequestHeader('Content-Type', 'application/json')
         xhr.send(JSON.stringify(data));
-    }
+    };
 
     return {
-        put: publicPut
-    }
+        put: publicPUT
+    };
 })();
