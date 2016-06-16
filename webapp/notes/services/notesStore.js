@@ -52,7 +52,7 @@ function publicDeleteNote(id, callback) {
 
 // all notes
 function publicAllNotes(callback) {
-    db.find({}, function (err, docs) {
+    db.find({}).sort({priority: -1}).exec(function (err, docs) {
         if (callback) {
             callback(err, docs);
         }
