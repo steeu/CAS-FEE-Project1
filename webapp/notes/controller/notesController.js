@@ -14,12 +14,14 @@ module.exports.addNote = function(req, res)
     });
 };
 
-module.exports.editNote = function(req, res)
+module.exports.getNote = function(req, res)
 {
-    store.edit(req.params.id, function(err, note) {
+    store.get(req.params.id, function(err, note) {
         res.render("note", note);
     });
 };
+
+
 
 module.exports.restAllNotes =  function (req, res)
 {
@@ -27,6 +29,28 @@ module.exports.restAllNotes =  function (req, res)
         res.format({
             'application/json': function(){
                 res.json(notes);
+            }
+        });
+    });
+};
+
+module.exports.restUpdateNote = function(req, res)
+{
+    store.update(req.params.id, req.body, function(err, numReplaced) {
+        res.format({
+            'application/json': function(){
+                res.json(numReplaced);
+            }
+        });
+    });
+};
+
+module.exports.restDeleteNote = function(req, res)
+{
+    store.delete(req.params.id, function(err, note) {
+        res.format({
+            'application/json': function(){
+                res.json(note);
             }
         });
     });

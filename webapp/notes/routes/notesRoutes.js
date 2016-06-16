@@ -3,7 +3,7 @@ var router = express.Router();
 var notesController = require('../controller/notesController.js');
 
 /**
- * pages
+ * hba router
  */
 
 // get index
@@ -11,13 +11,17 @@ router.get('/', notesController.showNotes);
 // add form
 router.get('/add', notesController.addNote);
 // edit form
-router.get("/edit/:id/", notesController.editNote);
+router.get("/update/:id/", notesController.getNote);
 
 /**
- * rest
+ * REST router
  */
 
 // rest all
 router.get("/rest/notes/", notesController.restAllNotes);
+// rest update
+router.put("/rest/note/:id/", notesController.restUpdateNote);
+// rest delete
+router.delete("/rest/note/:id/", notesController.restDeleteNote);
 
 module.exports = router;

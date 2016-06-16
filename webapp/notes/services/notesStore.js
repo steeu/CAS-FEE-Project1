@@ -24,10 +24,18 @@ function publicAddNote(callback) {
 };
 
 // edit note
-function publicEditNote(id, callback) {
+function publicGetNote(id, callback) {
 
     db.findOne({ _id: id }, function (err, doc) {
         callback(err, doc);
+    });
+};
+
+// edit note
+function publicUpdateNote(id, updatedNote, callback) {
+
+    db.update({ _id: id }, updatedNote, function (err, numReplaced) {
+        callback(err, numReplaced);
     });
 };
 
@@ -44,8 +52,9 @@ function publicAllNotes(callback) {
 };
 
 module.exports = {
+    get: publicGetNote,
     add: publicAddNote,
-    edit: publicEditNote,
+    update: publicUpdateNote,
     delete: publicDeleteNote,
     all: publicAllNotes
 };
