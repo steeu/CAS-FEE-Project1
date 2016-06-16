@@ -1,4 +1,9 @@
 var httpService = (function () {
+    "use strict";
+
+    function publicGET(url, successCallback, errorCallback) {
+        privateRequest("GET", url, null, successCallback, errorCallback);
+    };
 
     function publicPUT(url, data, successCallback, errorCallback) {
         privateRequest("PUT", url, data, successCallback, errorCallback);
@@ -16,7 +21,7 @@ var httpService = (function () {
             if (4 === xhr.readyState) {
                 if (xhr.status === 200) {
                     if (successCallback) {
-                        successCallback(xhr.responseText);
+                        successCallback(JSON.parse(xhr.responseText));
                     }
                 } else {
                     if (errorCallback) {
@@ -32,6 +37,7 @@ var httpService = (function () {
     };
 
     return {
+        get: publicGET,
         put: publicPUT,
         delete: publicDELETE
     };

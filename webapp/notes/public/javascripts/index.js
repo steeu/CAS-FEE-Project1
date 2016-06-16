@@ -1,7 +1,17 @@
 'use strict';
 
-// init task list
-//var myTaskList = new TaskList(storageData.getAllTasks());
+var templateSource = $('#tasklist-template').html();
+var template = Handlebars.compile(templateSource);
+
+// render list
+function renderList(data) {
+    $("#taskListWrapper").html(template(data));
+};
+
+// load task list
+dataService.all(function (data) {
+    renderList(data);
+});
 
 // add note
 $("body").on("click", "#btnAddNote", function(event) {
@@ -19,6 +29,44 @@ $("body").on("click", ".btnEditNote", function(event) {
     window.location = '/update/' + $(this).data("task-id");
 });
 
+// order notes by priority
+$("body").on("click", "#btnOrderByPriority", function(event) {
+    event.preventDefault();
+
+});
+
+// order notes by finish date
+$("body").on("click", "#btnOrderByFinishDate", function(event) {
+    event.preventDefault();
+
+});
+
+// order notes by create date
+$("body").on("click", "#btnOrderByCreateDate", function(event) {
+    event.preventDefault();
+
+});
+
+// show finished notes
+$("body").on("click", "#btnShowFinished", function(event) {
+    event.preventDefault();
+
+});
+
+// finish note checkbox
+$("body").on("change", ".checkboxFinishNote", function(event) {
+    event.preventDefault();
+
+});
+
+// finish note checkbox
+$("body").on("change", "#btnSelectSkin", function(event) {
+    event.preventDefault();
+
+});
+
+
+
 // finished task
 function finishedTask(event) {
     event.preventDefault();
@@ -28,27 +76,6 @@ function finishedTask(event) {
 
         // set as finished
     }
-};
-
-//order by finish date
-function orderByFinishDate(event) {
-    event.preventDefault();
-    myTaskList.orderBy('finishDate');
-    myTaskList.renderHTML('btnOrderByFinishDate');
-};
-
-// order by create date
-function orderByCreateDate(event) {
-    event.preventDefault();
-    myTaskList.orderBy('createDate');
-    myTaskList.renderHTML('btnOrderByCreateDate');
-};
-
-// order by priority
-function orderByPriority(event) {
-    event.preventDefault();
-    myTaskList.orderBy('priority');
-    myTaskList.renderHTML('btnOrderByPriority');
 };
 
 // show finished tasks
@@ -80,27 +107,3 @@ function updateSkin() {
     // set body class
     document.body.className = skin;
 };
-
-// on load
-//updateSkin();
-
-/**
- * event handler
- */
-var btnOrderByFinishDate = document.querySelector("#btnOrderByFinishDate");
-btnOrderByFinishDate.addEventListener("click", orderByFinishDate);
-// order by create date
-var btnOrderByCreateDate = document.querySelector("#btnOrderByCreateDate");
-btnOrderByCreateDate.addEventListener("click", orderByCreateDate);
-// order by priority
-var btnOrderByPriority = document.querySelector("#btnOrderByPriority");
-btnOrderByPriority.addEventListener("click", orderByPriority);
-// show finished tasks only
-var btnShowFinished = document.querySelector("#btnShowFinished");
-btnShowFinished.addEventListener("click", showFinished);
-// checkbox change handler
-var checkboxFinishedTask = document.querySelector("#taskListWrapper");
-checkboxFinishedTask.addEventListener('click', finishedTask);
-// select skin
-var btnSelectSkin = document.querySelector("#btnSelectSkin");
-btnSelectSkin.addEventListener("change", selectSkin);

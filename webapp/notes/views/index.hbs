@@ -5,28 +5,27 @@
     <title>Tasklist</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script type="text/javascript" src="/bower_components/jQuery/dist/jquery.min.js"></script>
-    <!--<script type="text/javascript" src="bower_components/handlebars/handlebars.min.js"></script>-->
-    <!--<script type="text/javascript" src="handlebars.helper.js"></script>-->
-    <!--<script type="text/javascript" src="tasklist.js"></script>-->
-    <!--<script type="text/javascript" src="/javascripts/storageConfig.js"></script>-->
-    <!--<script type="text/javascript" src="/javascripts/storageData.js"></script>-->
+    <script type="text/javascript" src="/bower_components/handlebars/handlebars.min.js"></script>
+    <script type="text/javascript" src="/javascripts/handlebarsHelper.js"></script>
+    <script type="text/javascript" src="/javascripts/services/httpService.js"></script>
+    <script type="text/javascript" src="/javascripts/services/dataService.js"></script>
     <script id="tasklist-template" type="text/x-handlebars-template">
         \{{#each this}}
-        <article data-task-id="\{{data.ID}}">
+        <article data-task-id="\{{_id}}">
             <div class="row flex-container">
                 <div class="col-1">
                     <h1>Nächsten Mittwoch</h1>
                     <div class="input-wrapper checkbox">
-                        <input class="checkboxFinishedTask" data-task-id="\{{ID}}" type="checkbox" name="done" \{{#if data.done}}checked}\{{/if}}>
+                        <input class="checkboxFinishNote" data-task-id="\{{_id}}" type="checkbox" name="done" \{{#if finished}}checked}\{{/if}}>
                         <label><span></span>Finished [Today]</label>
                     </div>
                 </div>
                 <div class="col-2">
-                    <h1>\{{data.title}}</h1>\{{{renderPriorityHTML data.priority}}}
-                    <div class="preview">\{{data.content}}</div> Erstellt am: \{{formatDate data.createDate}}
-                    <br>Zu erledigen bis: \{{formatDate data.finishDate}} </div>
+                    <h1>\{{title}}</h1>\{{{renderPriorityHTML priority}}}
+                    <div class="preview">\{{content}}</div> Erstellt am: \{{formatDate data.createDate}}
+                    <br>Zu erledigen bis: \{{formatDate finishDate}} </div>
                 <div class="col-3">
-                    <button class="btnEditNote btn-black" data-task-id="\{{ID}}">Edit</button>
+                    <button class="btnEditNote btn-black" data-task-id="\{{_id}}">Edit</button>
                 </div>
             </div>
         </article>
@@ -62,26 +61,26 @@
         </div>
     </header>
     <main id="taskListWrapper">
-        {{#each this}}
-        <article data-task-id="{{_id}}">
-            <div class="row flex-container">
-                <div class="col-1">
-                    <h1>Nächsten Mittwoch</h1>
-                    <div class="input-wrapper checkbox">
-                        <input class="checkboxFinishedTask" data-task-id="{{_id}}" type="checkbox" name="done" {{#if finished}}checked}{{/if}}>
-                        <label><span></span>Finished [Today]</label>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <h1>{{title}}</h1>
-                    <div class="preview">{{content}}</div> Erstellt am: {{createDate}}
-                    <br>Zu erledigen bis: {{finishDate}} </div>
-                <div class="col-3">
-                    <button class="btnEditNote btn-black" data-task-id="{{_id}}">Edit</button>
-                </div>
-            </div>
-        </article>
-        {{/each}}
+        <!--{{#each this}}-->
+        <!--<article data-task-id="{{_id}}">-->
+            <!--<div class="row flex-container">-->
+                <!--<div class="col-1">-->
+                    <!--<h1>Nächsten Mittwoch</h1>-->
+                    <!--<div class="input-wrapper checkbox">-->
+                        <!--<input class="checkboxFinishedTask" data-task-id="{{_id}}" type="checkbox" name="done" {{#if finished}}checked}{{/if}}>-->
+                        <!--<label><span></span>Finished [Today]</label>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-2">-->
+                    <!--<h1>{{title}}</h1>-->
+                    <!--<div class="preview">{{content}}</div> Erstellt am: {{createDate}}-->
+                    <!--<br>Zu erledigen bis: {{finishDate}} </div>-->
+                <!--<div class="col-3">-->
+                    <!--<button class="btnEditNote btn-black" data-task-id="{{_id}}">Edit</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</article>-->
+        <!--{{/each}}-->
     </main>
 </div>
 <script type="text/javascript" src="/javascripts/index.js"></script>
