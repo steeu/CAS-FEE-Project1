@@ -1,29 +1,10 @@
-# 02: HTML/CSS (Teil 1)
+# Notes
 
-* *Datum*: 11. Mai 2016
-* *Dozenten*: [Matthias Meier](https://github.com/matthiasmeier), [Thomas Jaggi](https://github.com/backflip)
-
-Beispiel eines statischen Webservers mit Node als Basis für zukünftige Aufgaben.
-
-## Aufsetzen
-
-```bash
-# Repo in eigenen Account forken (mit GitHub GUI)
-
-# Repo klonen
-git clone https://github.com/USERNAME/02-HTML-CSS.git
-
-# In Verzeichnis wechseln
-cd 02-HTML-CSS
-
-# NPM-Dependencies installieren (in package.json definiert)
-npm i
-```
+Projekt 1: Notes Web Applikation
 
 ## Webserver starten
 
 ```bash
-node index.js
+node app.js
 ```
-
-Im Browser unter http://localhost:3000 erreichbar.
+Im Browser unter http://127.0.0.1:3000/ erreichbar.
