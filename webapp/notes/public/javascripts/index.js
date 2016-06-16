@@ -15,7 +15,7 @@ function editTask(event) {
     event.preventDefault();
     // validate button with class name
     if (event.srcElement.className.indexOf("btnEditTask") !== -1) {
-        window.location = '/edit/' + event.srcElement.getAttribute("data-task-id");
+        window.location = '/update/' + event.srcElement.getAttribute("data-task-id");
     }
 };
 
