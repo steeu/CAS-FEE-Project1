@@ -7,13 +7,13 @@
 
     // render list
     function renderList(data) {
+        listData = data;
         $("#taskListWrapper").html(template(data));
     };
 
-    // load task list
-    dataService.all(function (data) {
-        listData = data;
-        renderList(listData);
+    // load all notes
+    dataService.openNotes(function (data) {
+        renderList(data);
     });
 
     // add note
@@ -75,12 +75,16 @@
             $("#btnShowFinished").data("show-finished", false);
             $("#btnShowFinished").text('Show finished');
             // load finished notes
-            // ???
+            dataService.openNotes(function (data) {
+                renderList(data);
+            });
         } else {
             $("#btnShowFinished").data("show-finished", true);
             $("#btnShowFinished").text('Show open');
             // load open notes
-            // ???
+            dataService.finishedNotes(function (data) {
+                renderList(data);
+            });
         }
     });
 

@@ -2,7 +2,7 @@ var store = require("../services/notesStore.js");
 
 module.exports.showNotes = function(req, res)
 {
-    store.all(function(err, notes) {
+    store.all({}, function(err, notes) {
         res.render("index", notes);
     });
 };
@@ -21,11 +21,31 @@ module.exports.getNote = function(req, res)
     });
 };
 
-
-
 module.exports.restAllNotes =  function (req, res)
+{   console.log("all notes");
+    store.all({}, function(err, notes) {
+        res.format({
+            'application/json': function(){
+                res.json(notes);
+            }
+        });
+    });
+};
+
+module.exports.restOpenNotes =  function (req, res)
 {
-    store.all(function(err, notes) {
+    store.all({finished: false}, function(err, notes) {
+        res.format({
+            'application/json': function(){
+                res.json(notes);
+            }
+        });
+    });
+};
+
+module.exports.restFinishedNotes =  function (req, res)
+{
+    store.all({finished: true}, function(err, notes) {
         res.format({
             'application/json': function(){
                 res.json(notes);
