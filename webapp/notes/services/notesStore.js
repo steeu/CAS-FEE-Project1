@@ -22,11 +22,20 @@ function publicAddNote(callback) {
     });
 };
 
-// edit note
+// get note
 function publicGetNote(id, callback) {
     db.findOne({_id: id}, function (err, doc) {
         if (callback) {
             callback(err, doc);
+        }
+    });
+};
+
+// get all notes
+function publicAllNotes(filter, callback) {
+    db.find(filter).sort({priority: -1}).exec(function (err, docs) {
+        if (callback) {
+            callback(err, docs);
         }
     });
 };
@@ -46,15 +55,6 @@ function publicDeleteNote(id, callback) {
     db.remove({_id: id}, {}, function (err, numRemoved) {
         if (callback) {
             callback(err, numRemoved);
-        }
-    });
-};
-
-// all notes
-function publicAllNotes(filter, callback) {
-    db.find(filter).sort({priority: -1}).exec(function (err, docs) {
-        if (callback) {
-            callback(err, docs);
         }
     });
 };
