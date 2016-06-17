@@ -27,7 +27,7 @@
     $("body").on("click", ".btnEditNote", function (event) {
         event.preventDefault();
         // goto update note
-        window.location = '/update/' + $(this).data("task-id");
+        window.location = '/update/' + $(this).data("id");
     });
 
     // order notes by priority
@@ -87,8 +87,8 @@
     // finish note checkbox
     $("body").on("change", ".checkboxFinishNote", function (event) {
         event.preventDefault();
-        // mark note as finished
-        // ???
+        // mark note as finished / not finished
+        dataService.update($(this).data("id"), {finished: $(this).is(':checked')});
     });
 
     // select skin dropdown

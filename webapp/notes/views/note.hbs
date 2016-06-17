@@ -192,9 +192,9 @@
                 <input type="date" id="in-date" placeholder="TT/MM/YYYY" value="{{finishDate}}"></div>
             <div class="input-wrapper txt-left top-20">
                 <label></label>
-                <button id="btnSaveNote" data-urlpath="/rest/note/{{_id}}" class="btn-blue">Speichern</button>
-                <button id="btnRemoveNote" data-urlpath="/rest/note/{{_id}}" class="btn-red">Löschen</button>
-                <button id="btnCancelNote" data-urlpath="/rest/note/{{_id}}" class="btn-cancel">Cancel</button>
+                <button id="btnSaveNote" data-id="{{_id}}" class="btn-blue">Speichern</button>
+                <button id="btnRemoveNote" data-id="{{_id}}" class="btn-red">Löschen</button>
+                <button id="btnCancelNote" data-id="{{_id}}" class="btn-cancel">Cancel</button>
             </div>
         </form>
     </main>

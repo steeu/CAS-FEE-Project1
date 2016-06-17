@@ -20,12 +20,16 @@ var httpService = (function () {
         xhr.onreadystatechange = function () {
             if (4 === xhr.readyState) {
                 if (xhr.status === 200) {
+                    console.log("success: ", xhr.responseText);
+                    // validate success callback function
                     if (successCallback) {
                         successCallback(JSON.parse(xhr.responseText));
                     }
                 } else {
+                    console.log("error: ", xhr.responseText);
+                    // validate error callback function
                     if (errorCallback) {
-                        errorCallback();
+                        errorCallback(xhr.responseText);
                     }
                 }
             }

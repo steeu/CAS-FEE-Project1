@@ -35,11 +35,8 @@
         };
 
         // rest service
-        httpService.put($(this).data("urlpath"), formData, function (result) {
-            console.log(result);
+        dataService.update($(this).data("id"), formData, function (result) {
             window.location = "/";
-        }, function (result) {
-            console.log("Error: ", result);
         });
     });
 
@@ -47,11 +44,8 @@
     $("body").on("click", "#btnRemoveNote", function (event) {
         event.preventDefault();
         // rest service
-        httpService.delete($(this).data("urlpath"), function (result) {
-            console.log(result);
+        dataService.remove($(this).data("id"), function (result) {
             window.location = "/";
-        }, function (result) {
-            console.log("Error: ", result);
         });
     });
 

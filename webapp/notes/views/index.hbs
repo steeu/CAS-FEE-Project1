@@ -16,7 +16,7 @@
                 <div class="col-1">
                     <h1>Nächsten Mittwoch</h1>
                     <div class="input-wrapper checkbox">
-                        <input class="checkboxFinishNote" data-task-id="\{{_id}}" type="checkbox" name="done" \{{#if finished}}checked}\{{/if}}>
+                        <input class="checkboxFinishNote" data-id="\{{_id}}" type="checkbox" \{{#if finished}}checked\{{/if}}>
                         <label><span></span>Finished [Today]</label>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                     Create Date: \{{formatDate createDate}}<br>
                     Finish Date: \{{formatDate finishDate}} </div>
                 <div class="col-3">
-                    <button class="btnEditNote btn-black" data-task-id="\{{_id}}">Edit</button>
+                    <button class="btnEditNote btn-black" data-id="\{{_id}}">Edit</button>
                 </div>
             </div>
         </article>
