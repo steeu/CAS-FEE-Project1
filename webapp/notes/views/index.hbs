@@ -2,8 +2,10 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
     <title>Tasklist</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.min.css">
     <script type="text/javascript" src="/bower_components/jQuery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/bower_components/handlebars/handlebars.min.js"></script>
     <script type="text/javascript" src="/javascripts/handlebarsHelper.js"></script>
@@ -21,10 +23,9 @@
                     </div>
                 </div>
                 <div class="col-2">
-                    <h1>\{{title}}</h1>\{{{renderPriorityHTML priority}}}
+                    <h1>\{{title}}</h1><span class="priority-wrapper">\{{{renderPriorityHTML priority}}}</span>
                     <div class="preview">\{{content}}</div>
-                    Create Date: \{{formatDate createDate}}<br>
-                    Finish Date: \{{formatDate finishDate}} </div>
+                    \{{formatDate finishDate}} </div>
                 <div class="col-3">
                     <button class="btnEditNote btn-black" data-id="\{{_id}}">Edit</button>
                 </div>

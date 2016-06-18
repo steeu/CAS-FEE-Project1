@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
     <title>Tasklist - Edit</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.min.css">
     <script type="text/javascript" src="/bower_components/jQuery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/javascripts/services/httpService.js"></script>
     <script type="text/javascript" src="/javascripts/services/dataService.js"></script>
@@ -14,188 +16,34 @@
 <div class="app-wrapper">
     <main>
         <form>
-            <div class="input-wrapper">
+            <div class="input-wrapper flex-container">
                 <label for="in-title">Titel</label>
                 <input type="text" id="in-title" value="{{title}}" placeholder="Titel"></div>
-            <div class="input-wrapper">
+            <div class="input-wrapper flex-container">
                 <label for="in-description">Beschreibung</label>
                 <textarea id="in-description" rows="18" placeholder="Beschreibung">{{content}}</textarea>
             </div>
-            <div class="input-wrapper">
+            <div class="input-wrapper flex-container">
                 <label>Wichtigkeit</label>
                 <span id="icon-priority-wrapper">
-                    <svg class="icon-priority" data-priority="1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 272.256 272.256" style="enable-background:new 0 0 272.256 272.256;" xml:space="preserve" width="512px" height="512px">
-                        <path d="M235.096,103.563c-1.644-3.688-5.304-6.063-9.342-6.063c-11.689,0-76.95,0-76.95,0l31.652-83.653  c1.189-3.142,0.759-6.668-1.151-9.433C177.396,1.65,174.251,0,170.891,0H94.762c-4.252,0-8.061,2.631-9.566,6.608l-48.26,127.544  c-1.189,3.142-0.759,6.668,1.151,9.433c1.91,2.764,5.055,4.415,8.415,4.415l85.399-0.513L86.78,267.492  c-0.596,1.586,0.021,3.372,1.469,4.252c1.448,0.88,3.318,0.604,4.451-0.656l140.662-156.523  C236.06,111.561,236.74,107.251,235.096,103.563z" fill="#FFDA44"/>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                    </svg><svg class="icon-priority" data-priority="2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 272.256 272.256" style="enable-background:new 0 0 272.256 272.256;" xml:space="preserve" width="512px" height="512px">
-                        <path d="M235.096,103.563c-1.644-3.688-5.304-6.063-9.342-6.063c-11.689,0-76.95,0-76.95,0l31.652-83.653  c1.189-3.142,0.759-6.668-1.151-9.433C177.396,1.65,174.251,0,170.891,0H94.762c-4.252,0-8.061,2.631-9.566,6.608l-48.26,127.544  c-1.189,3.142-0.759,6.668,1.151,9.433c1.91,2.764,5.055,4.415,8.415,4.415l85.399-0.513L86.78,267.492  c-0.596,1.586,0.021,3.372,1.469,4.252c1.448,0.88,3.318,0.604,4.451-0.656l140.662-156.523  C236.06,111.561,236.74,107.251,235.096,103.563z" fill="#FFDA44"/>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                    </svg><svg class="icon-priority" data-priority="3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 272.256 272.256" style="enable-background:new 0 0 272.256 272.256;" xml:space="preserve" width="512px" height="512px">
-                        <path d="M235.096,103.563c-1.644-3.688-5.304-6.063-9.342-6.063c-11.689,0-76.95,0-76.95,0l31.652-83.653  c1.189-3.142,0.759-6.668-1.151-9.433C177.396,1.65,174.251,0,170.891,0H94.762c-4.252,0-8.061,2.631-9.566,6.608l-48.26,127.544  c-1.189,3.142-0.759,6.668,1.151,9.433c1.91,2.764,5.055,4.415,8.415,4.415l85.399-0.513L86.78,267.492  c-0.596,1.586,0.021,3.372,1.469,4.252c1.448,0.88,3.318,0.604,4.451-0.656l140.662-156.523  C236.06,111.561,236.74,107.251,235.096,103.563z" fill="#FFDA44"/>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                    </svg><svg class="icon-priority" data-priority="4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 272.256 272.256" style="enable-background:new 0 0 272.256 272.256;" xml:space="preserve" width="512px" height="512px">
-                        <path d="M235.096,103.563c-1.644-3.688-5.304-6.063-9.342-6.063c-11.689,0-76.95,0-76.95,0l31.652-83.653  c1.189-3.142,0.759-6.668-1.151-9.433C177.396,1.65,174.251,0,170.891,0H94.762c-4.252,0-8.061,2.631-9.566,6.608l-48.26,127.544  c-1.189,3.142-0.759,6.668,1.151,9.433c1.91,2.764,5.055,4.415,8.415,4.415l85.399-0.513L86.78,267.492  c-0.596,1.586,0.021,3.372,1.469,4.252c1.448,0.88,3.318,0.604,4.451-0.656l140.662-156.523  C236.06,111.561,236.74,107.251,235.096,103.563z" fill="#FFDA44"/>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                    </svg><svg class="icon-priority" data-priority="5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 272.256 272.256" style="enable-background:new 0 0 272.256 272.256;" xml:space="preserve" width="512px" height="512px">
-                        <path d="M235.096,103.563c-1.644-3.688-5.304-6.063-9.342-6.063c-11.689,0-76.95,0-76.95,0l31.652-83.653  c1.189-3.142,0.759-6.668-1.151-9.433C177.396,1.65,174.251,0,170.891,0H94.762c-4.252,0-8.061,2.631-9.566,6.608l-48.26,127.544  c-1.189,3.142-0.759,6.668,1.151,9.433c1.91,2.764,5.055,4.415,8.415,4.415l85.399-0.513L86.78,267.492  c-0.596,1.586,0.021,3.372,1.469,4.252c1.448,0.88,3.318,0.604,4.451-0.656l140.662-156.523  C236.06,111.561,236.74,107.251,235.096,103.563z" fill="#FFDA44"/>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                    </svg>
+                    <i class="fa fa-bolt icon-priority" data-priority="1" aria-hidden="true"></i>
+                    <i class="fa fa-bolt icon-priority" data-priority="2" aria-hidden="true"></i>
+                    <i class="fa fa-bolt icon-priority" data-priority="3" aria-hidden="true"></i>
+                    <i class="fa fa-bolt icon-priority" data-priority="4" aria-hidden="true"></i>
+                    <i class="fa fa-bolt icon-priority" data-priority="5" aria-hidden="true"></i>
                 </span>
                 <input type="hidden" id="in-priority" value="{{priority}}">
             </div>
-            <div class="input-wrapper">
+            <div class="input-wrapper flex-container">
                 <label>Erledigt bis</label>
                 <input type="date" id="in-date" placeholder="TT/MM/YYYY" value="{{finishDate}}"></div>
-            <div class="input-wrapper txt-left top-20">
+            <div class="input-wrapper flex-container txt-left top-20">
                 <label></label>
-                <button id="btnSaveNote" data-id="{{_id}}" class="btn-blue">Speichern</button>
-                <button id="btnRemoveNote" data-id="{{_id}}" class="btn-red">Löschen</button>
-                <button id="btnCancelNote" data-id="{{_id}}" class="btn-cancel">Cancel</button>
+                <span class="input-button-wrapper">
+                    <button id="btnSaveNote" data-id="{{_id}}" class="btn-blue">Speichern</button>
+                    <button id="btnRemoveNote" data-id="{{_id}}" class="btn-red">Löschen</button>
+                    <button id="btnCancelNote" data-id="{{_id}}" class="btn-cancel">Cancel</button>
+                </span>
             </div>
         </form>
     </main>
