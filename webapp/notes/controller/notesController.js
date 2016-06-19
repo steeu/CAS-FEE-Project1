@@ -1,4 +1,4 @@
-var store = require("../services/notesStore.js");
+var store = require("../services/dataService.js");
 
 module.exports.showNotes = function(req, res)
 {

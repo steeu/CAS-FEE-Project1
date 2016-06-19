@@ -15,8 +15,10 @@
                 return "Today";
             } else if (dayDifference === 1) {
                 return "Tomorrow"
-            } else if (dayDifference) {
-                return "Somtime"
+            } else if (dayDifference > 1) {
+                return "Sometime"
+            } else if (dayDifference === -1) {
+                return "Yesterday"
             }
         } else {
             return myDate.getDate() + '.' + (myDate.getMonth() + 1) + '.' + myDate.getFullYear();
