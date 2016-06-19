@@ -16,18 +16,26 @@
         <article data-task-id="\{{_id}}">
             <div class="row flex-container">
                 <div class="col-1">
-                    <h1>Nächsten Mittwoch</h1>
+                    <h1>\{{formatDate finishDate "words"}}</h1>
                     <div class="input-wrapper checkbox">
                         <input class="checkboxFinishNote" data-id="\{{_id}}" type="checkbox" \{{#if finished}}checked\{{/if}}>
-                        <label><span></span>Finished [Today]</label>
+                        <label>
+                            <span>
+                                \{{#if finished}}
+                                    Finished
+                                \{{else}}
+                                    \{{formatDate finishDate}}
+                                \{{/if}}
+                            </span>
+                        </label>
                     </div>
                 </div>
                 <div class="col-2">
                     <h1>\{{title}}</h1><span class="priority-wrapper">\{{{renderPriorityHTML priority}}}</span>
                     <div class="preview">\{{content}}</div>
-                    \{{formatDate finishDate}} </div>
+                </div>
                 <div class="col-3">
-                    <button class="btnEditNote btn-black" data-id="\{{_id}}">Edit</button>
+                    <button class="btnEditNote btn-font-awesome" data-id="\{{_id}}"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 </div>
             </div>
         </article>
@@ -40,7 +48,7 @@
     <header>
         <div class="row flex-container">
             <div class="col-1">
-                <button id="btnAddNote" class="btn-blue">Create new note</button>
+                <button id="btnAddNote" class="btn-green">Add note</button>
             </div>
             <div class="col-2">
                 <select id="btnSelectSkin">

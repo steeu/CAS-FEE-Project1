@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Sans);
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
-
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700);
 
 /*****************************************************************************
  * general
@@ -103,6 +102,7 @@ button {
   width: 200px;
   height: 34px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 @media all and (max-width: 856px) {
@@ -117,19 +117,19 @@ button:hover {
   background-color: rgb(157, 157, 157);
 }
 
-button.btn-blue {
+button.btn-green {
   background-color: rgb(94, 192, 100);
 }
 
-button.btn-blue:hover {
+button.btn-green:hover {
   background-color: rgb(64, 162, 70);
 }
 
-.bw button.btn-blue {
+.bw button.btn-green {
   background-color: rgb(240, 241, 242);
 }
 
-.bw button.btn-blue:hover {
+.bw button.btn-green:hover {
   background-color: rgb(210, 211, 212);
 }
 
@@ -156,6 +156,16 @@ button.btn-black {
 
 button.btn-black:hover {
   background-color: rgb(30, 33, 34);
+}
+
+button.btn-font-awesome {
+  background-color: transparent;
+  width: auto;
+  height: auto;
+}
+
+button.btn-font-awesome:hover {
+  color: rgb(94, 192, 100);
 }
 
 button.active {
@@ -258,7 +268,6 @@ article {
   border-radius: 4px;
   color: rgb(60, 63, 64);
   transition: background-color 0.5s ease;
-  cursor: pointer;
 }
 
 article:hover {
@@ -270,11 +279,27 @@ article h1 {
   font-size: 1.2em;
   color: rgb(60, 63, 64);
   display: inline-block;
+  margin-bottom: 10px;
+}
+
+article .col-1 h1 {
+  font-weight: 400;
+}
+
+article .col-2 h1 {
+  font-weight: 700;
 }
 
 article label {
   color: rgb(60, 63, 64);
-  font-style: italic;
+}
+
+article input.checkboxFinishNote {
+  height: 15px;
+}
+
+article .preview {
+  padding: 0 0 14px 0;
 }
 
 article button {
@@ -318,10 +343,6 @@ main .row .col-2 {
 main .row .col-3 {
   flex: 1 20%;
   text-align: right;
-}
-
-.preview {
-  padding: 8px 0 14px 0;
 }
 
 /*****************************************************************************
