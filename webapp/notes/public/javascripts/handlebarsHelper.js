@@ -19,6 +19,8 @@
                 return "Sometime"
             } else if (dayDifference === -1) {
                 return "Yesterday"
+            } else if (dayDifference < -1) {
+                return "Past"
             }
         } else {
             return myDate.getDate() + '.' + (myDate.getMonth() + 1) + '.' + myDate.getFullYear();
