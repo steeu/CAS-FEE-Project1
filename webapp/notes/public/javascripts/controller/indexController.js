@@ -36,6 +36,13 @@
         window.location = '/update/' + $(this).data("id");
     });
 
+    // view note
+    $("body").on("click", "article .preview", function (event) {
+        event.preventDefault();
+        // togle open class
+        $(this).toggleClass("open");
+    });
+
     // order notes by priority
     $("body").on("click", "#btnOrderByPriority", function (event) {
         event.preventDefault();

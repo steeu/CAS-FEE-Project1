@@ -261,9 +261,9 @@ header .row .col-2 {
   }
 }
 
-/*
+/*****************************************************************************
  * article (note)
- *---------------------------------------------------------------------*/
+ *****************************************************************************/
 
 article {
   padding: 0 16px 8px 16px;
@@ -305,6 +305,15 @@ article input.checkboxFinishNote {
 
 article .preview {
   padding: 0 0 14px 0;
+  height: 58px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+article .preview.open {
+  padding: 0 0 14px 0;
+  height: auto;
+  overflow: auto;
 }
 
 article button {
