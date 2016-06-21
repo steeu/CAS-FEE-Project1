@@ -80,6 +80,10 @@ select {
   height: 34px;
 }
 
+select:hover {
+  background-color: rgb(157, 157, 157);
+}
+
 @media all and (max-width: 856px) {
   select {
     width: 100%;
@@ -126,11 +130,11 @@ button.btn-green:hover {
 }
 
 .bw button.btn-green {
-  background-color: rgb(240, 241, 242);
+  background-color: rgb(187, 187, 187);
 }
 
 .bw button.btn-green:hover {
-  background-color: rgb(210, 211, 212);
+  background-color: rgb(157, 157, 157);
 }
 
 button.btn-red {
@@ -142,11 +146,11 @@ button.btn-red:hover {
 }
 
 .bw button.btn-red {
-  background-color: rgb(240, 241, 242);
+  background-color: rgb(187, 187, 187);
 }
 
 .bw button.btn-red:hover {
-  background-color: rgb(210, 211, 212);
+  background-color: rgb(157, 157, 157);
 }
 
 button.btn-black {
@@ -168,6 +172,10 @@ button.btn-font-awesome:hover {
   color: rgb(94, 192, 100);
 }
 
+.bw button.btn-font-awesome:hover {
+  color: rgb(20, 20, 20);
+}
+
 button.active {
   background-color: rgb(255, 218, 68);
 }
@@ -179,10 +187,7 @@ button.active:hover {
 .bw button.active {
   background-color: rgb(0, 0, 0);
   color: rgb(157, 157, 157);
-}
-
-.bw button.active:hover {
-  background-color: rgb(50, 50, 50);
+  cursor: default;
 }
 
 /*****************************************************************************
@@ -256,9 +261,9 @@ header .row .col-2 {
   }
 }
 
-/*****************************************************************************
+/*
  * article (note)
- *****************************************************************************/
+ *---------------------------------------------------------------------*/
 
 article {
   padding: 0 16px 8px 16px;
@@ -313,6 +318,10 @@ article .priority-wrapper {
   display: inline-block;
   font-size: 1.4em;
   color: rgb(222, 74, 38);
+}
+
+.bw article .priority-wrapper {
+  color: rgb(60, 63, 64);
 }
 
 article .icon-priority path {
@@ -422,6 +431,10 @@ form .icon-priority {
 
 form .icon-priority.active {
   color: rgb(255, 218, 68);
+}
+
+.bw form .icon-priority.active {
+  color: rgb(20, 20, 20);
 }
 
 /*****************************************************************************

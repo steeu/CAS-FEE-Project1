@@ -11,6 +11,12 @@
         $("#taskListWrapper").html(template(data));
     };
 
+    // set skin class
+    if (configService.getSkin()) {
+        $('body').addClass(configService.getSkin());
+        $("#btnSelectSkin").val(configService.getSkin());
+    }
+
     // load all notes
     dataService.openNotes(function (data) {
         renderList(data);
@@ -98,9 +104,11 @@
     // select skin dropdown
     $("body").on("change", "#btnSelectSkin", function (event) {
         event.preventDefault();
+        // skin
+        var skinClass = $(this).val();
         // set body class
-        document.body.className = $(this).val();
+        document.body.className = skinClass;
         // save selected skin
-        // ???
+        configService.setSkin(skinClass);
     });
 })();

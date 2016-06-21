@@ -10,9 +10,13 @@
                 $(value).removeClass("active");
             }
         });
-    }
-
+    };
     renderPriorityIcons();
+
+    // set skin class
+    if (configService.getSkin()) {
+        $('body').addClass(configService.getSkin());
+    }
 
     // set priority (hidden input field)
     $("body").on("click", ".icon-priority", function (event) {

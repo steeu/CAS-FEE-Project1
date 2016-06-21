@@ -1,3 +1,6 @@
+/**
+ * http request service
+ */
 var httpService = (function () {
     "use strict";
 
