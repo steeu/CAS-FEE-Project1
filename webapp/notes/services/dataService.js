@@ -7,7 +7,7 @@ function Note(params) {
 
     this.title = params.title;
     this.content = params.content;
-    this.priority = params.priority || 0;
+    this.priority = params.priority || 1;
     this.finishDate = moment().format("YYYY-MM-DD");
     this.createDate = moment().format("YYYY-MM-DD");
     this.finished = false;

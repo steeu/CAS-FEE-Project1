@@ -12,9 +12,6 @@
         });
     };
     renderPriorityIcons();
-
-    // validate form
-    $("#noteForm").validate();
     
     // set skin class
     if (configService.getSkin()) {
