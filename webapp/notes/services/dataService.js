@@ -5,9 +5,9 @@ var moment = require('moment');
 function Note(params) {
     var params = params || {};
 
-    this.title = params.title || 'Titel neue Notiz ...';
-    this.content = params.content || 'Inhalt neue Notiz ...';
-    this.priority = params.priority || 1;
+    this.title = params.title;
+    this.content = params.content;
+    this.priority = params.priority || 0;
     this.finishDate = moment().format("YYYY-MM-DD");
     this.createDate = moment().format("YYYY-MM-DD");
     this.finished = false;

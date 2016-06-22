@@ -6,12 +6,6 @@
     <title>Tasklist</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.min.css">
-    <script type="text/javascript" src="/bower_components/jQuery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/bower_components/handlebars/handlebars.min.js"></script>
-    <script type="text/javascript" src="/javascripts/handlebarsHelper.js"></script>
-    <script type="text/javascript" src="/javascripts/services/configService.js"></script>
-    <script type="text/javascript" src="/javascripts/services/httpService.js"></script>
-    <script type="text/javascript" src="/javascripts/services/dataService.js"></script>
     <script id="tasklist-template" type="text/x-handlebars-template">
         \{{#each this}}
         <article data-task-id="\{{_id}}">
@@ -95,7 +89,13 @@
         <!--{{/each}}-->
     </main>
 </div>
-<script type="text/javascript" src="/javascripts/controller/indexController.js"></script>
+<script src="/bower_components/jQuery/dist/jquery.min.js"></script>
+<script src="/bower_components/handlebars/handlebars.min.js"></script>
+<script src="/javascripts/handlebarsHelper.js"></script>
+<script src="/javascripts/services/configService.js"></script>
+<script src="/javascripts/services/httpService.js"></script>
+<script src="/javascripts/services/dataService.js"></script>
+<script src="/javascripts/controller/indexController.js"></script>
 </body>
 
 </html>
