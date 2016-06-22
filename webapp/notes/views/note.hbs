@@ -7,22 +7,18 @@
     <title>Tasklist - Edit</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.min.css">
-    <script type="text/javascript" src="/bower_components/jQuery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/javascripts/services/configService.js"></script>
-    <script type="text/javascript" src="/javascripts/services/httpService.js"></script>
-    <script type="text/javascript" src="/javascripts/services/dataService.js"></script>
 </head>
 
 <body>
 <div class="app-wrapper">
     <main>
-        <form>
+        <form id="noteForm">
             <div class="input-wrapper flex-container">
                 <label for="in-title">Titel</label>
-                <input type="text" id="in-title" value="{{title}}" placeholder="Titel"></div>
+                <input type="text" id="in-title" value="{{title}}" placeholder="Titel" required></div>
             <div class="input-wrapper flex-container">
                 <label for="in-description">Beschreibung</label>
-                <textarea id="in-description" rows="18" placeholder="Beschreibung">{{content}}</textarea>
+                <textarea id="in-description" rows="18" placeholder="Beschreibung" required>{{content}}</textarea>
             </div>
             <div class="input-wrapper flex-container">
                 <label>Wichtigkeit</label>
@@ -37,7 +33,7 @@
             </div>
             <div class="input-wrapper flex-container">
                 <label>Erledigt bis</label>
-                <input type="date" id="in-date" placeholder="TT/MM/YYYY" value="{{finishDate}}"></div>
+                <input type="date" id="in-date" placeholder="TT/MM/YYYY" value="{{finishDate}}" required></div>
             <div class="input-wrapper flex-container txt-left top-20">
                 <label></label>
                 <span class="input-button-wrapper">
@@ -49,7 +45,12 @@
         </form>
     </main>
 </div>
-<script type="text/javascript" src="/javascripts/controller/noteController.js"></script>
+<script src="/bower_components/jQuery/dist/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
+<script src="/javascripts/services/configService.js"></script>
+<script src="/javascripts/services/httpService.js"></script>
+<script src="/javascripts/services/dataService.js"></script>
+<script src="/javascripts/controller/noteController.js"></script>
 </body>
 
 </html>

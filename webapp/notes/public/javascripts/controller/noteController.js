@@ -13,6 +13,9 @@
     };
     renderPriorityIcons();
 
+    // validate form
+    $("#noteForm").validate();
+    
     // set skin class
     if (configService.getSkin()) {
         $('body').addClass(configService.getSkin());
